@@ -1,0 +1,59 @@
+Object Oriented Programming
+ - Objects are used to used to model real world items.
+
+ - State and Behavior 
+    - State - the collection of attributes that make up an Object
+        Ex: A vehicle might have an attribute that describes:
+            - the number of tires/wheels
+            - number of doors
+            - color
+            - number of seats
+            - make
+            - model
+
+        Ex: A person might have attributes:
+            - vertical jump
+            - the number of toes they have
+            - height
+            - favorite type of bread
+
+        Ex: A pokemon
+            - type
+            - egg group
+            - move set
+            - attack stat
+            - nickname
+
+    - Behavior - the collection of actions an object can do
+        Ex: Vehicle
+            - combust()
+            - fill_tank()
+            - move_forward()
+            - move_backwards()
+            - move_upwards()
+            - toast_bread() <- for vehicles with toasters
+            - turn_on_radio()
+        
+        Ex: People
+            - spend_money()
+            - consume()
+            - type()
+            - die()
+            
+        Ex: Pokemon
+            - faint()
+            - attack()
+            - miss_attack()
+            - critical_hit()
+            - level_up()
+            - eat()
+            - set_hp()
+
+- Classes and Instances
+    - A class represents a blueprint or template for an object (or instance).
+    - Instantiation is the process of creating an instance of a class.
+    - One individual instance is an object.
+
+
+
+
