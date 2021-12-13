@@ -52,7 +52,7 @@ class Pikachu:
         result += f"Nickname: {self.nickname}"
         result += f"\nLevel: {self.level}"
         return result
-"""
+
 pika1 = Pikachu('💩')
 print(pika1.nickname)
 pika1.nickname = 'Jordan'
@@ -62,6 +62,8 @@ pika1.level = 10
 print(pika1)
 pika1.level = -10
 print(pika1)
+
 """
 pika1 = Pikachu()
 print(pika1)
+"""
