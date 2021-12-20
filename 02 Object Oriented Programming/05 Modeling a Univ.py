@@ -84,7 +84,10 @@ class Person:
 
     @birth_year.setter
     def birth_year(self, value):
-        self._birth_year = value
+        if not hasattr(self, '_birth_year'):
+            self._birth_year = None
+        if int(value) < 2022:
+            self._birth_year = value
     
     @property
     def schedule(self):
@@ -100,36 +103,68 @@ class Person:
 
     @id.setter
     def id(self, value):
+        if hasattr(self, '_id'):
+            raise PermissionError("You cannot set the value of id")
         self._id = value
 
     # additional methods
     def view_schedule(self):
         return f"{self.name}'s Schedule:\n{self.schedule.__str__()}"
 
+    def __str__(self):
+        return f"Name: {self.name}\nBirthyear: {self.birth_year}\nID: {self.id}"
+
 # A student is a person (this is how we do inheritance)
 # A student inherits all members (collectively state and behavior) of a person
 # Person is the superclass for Student.
 # Student is a subclass of Person
 class Student(Person):
-    pass
+    
+    def __init__(self, name, birth_year, major):
+        # two ways to call on the superclass
+        #super().__init__(name, birth_year)         # one way
+        Person.__init__(self, name, birth_year)     # another way
+        self.major = major
 
+    @property
+    def major(self):
+        return self._major
+
+    @major.setter
+    def major(self, value):
+        self._major = value
+
+    def __str__(self):
+        return super().__str__() + "\nRole: Student" 
 
 class Faculty(Person):
-    pass
+    
+    def __init__(self, name, birth_year, dept):
+        # two ways to call on the superclass
+        #super().__init__(name, birth_year)         # one way
+        Person.__init__(self, name, birth_year)     # another way
+        self.dept = dept
 
+    @property
+    def dept(self):
+        return self._dept
 
-
-
-
+    @dept.setter
+    def dept(self, value):
+        self._dept = value
+"""
+    def __str__(self):
+        return super().__str__() + "\nRole: Faculty" 
+"""
 
 # Testing stuff
-c1 = Course("CSC", 130)
-c2 = Course("MATH", 240)
-print(c1)
-print(c2)
+p1 = Student("Sam", 2002, "Agriculture")
+p2 = Faculty("You", 2030, "Agriculture")
 
-s1 = Schedule()
-print(s1)
-s1.add_course(c1)
-s1.add_course(c2)
-print(s1)
+c1 = Course("AGRI", "414")
+c2 = Course("BIOB", "702")
+
+print()
+print(p1)
+print()
+print(p2)
